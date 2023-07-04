@@ -1,0 +1,20 @@
+:root {
+    --blue: #4f689e;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    background-color: var(--blue);
+    color: aliceblue;
+}
+
+input {
+    width: 100%;
+} 
+
+button {
+    width: 100%;
+}
