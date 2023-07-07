@@ -1,8 +1,9 @@
 :root {
     --blue: #4f689e;
+    --gray: rgb(189, 189, 189);
 }
 
-html {
+body {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -11,10 +12,39 @@ header {
     color: aliceblue;
 }
 
+.search {
+    border: none;
+    background-color: var(--blue);
+    color: white;
+}
+
+.cities {
+    border: none;
+    background-color: var(--gray);
+}
+
 input {
     width: 100%;
 } 
 
 button {
     width: 100%;
+}
+
+.display-box {
+    border: 1px solid black;
+}
+
+.card {
+    width: 18%;
+    margin: 1%;
+    border-radius: 0;
+    border: none;
+    background-color: var(--blue);
+    color: white;
+    padding: 2px;
+}
+
+ul {
+    list-style-type: none;
 }

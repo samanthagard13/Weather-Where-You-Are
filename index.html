@@ -10,76 +10,158 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./Style/style.css" />
     <title>Rain or Shine</title>
 </head>
+
 <body>
-    <header class="container-fluid d-flex text-center">
-        <div class="text-center p-5 d-flex align-items-center">
-            <h1>Weather Where You Are</h1>
+
+    <header class="container-fluid d-flex justify-content-center">
+        <div class="text-center d-flex align-items-center">
+            <i class="fa-solid fa-cloud-sun-rain fa-2xl"></i>
+            <h1 class="h1 p-4">Weather Where You Are</h1>
         </div>
     </header>
 
-    <section class="container-fluid p-2 m-2">
-        <div class="row p-2">
-            <div class="col-12 col-md-4 col-lg-3 d-flex align-items-center">
-                <h2 class="text-center">Search For A City</h2>
-            </div>
-            <div class="col-12 col-md-8 col-lg-8">
-                <h2 class="text-center display-box" id="currentcity">Current City</h2>
-                <h2 id="today"></h2>
-            </div>
-        </div>
-            <div class="row p-2">
-                <div class="col-12 col-md-4 col-lg-3">
-                    <input class="p-2" id="cityinput" type="city" placeholder="ex. San Diego">
+    <div class="container p-0">
+        <div class="row p-0">
+            <section class="text-center col-12 col-md-4 col-lg-3">
+                <div class="p-3 mt-3 col-12 d-flex justify-content-center align-items-center">
+                    <h2 class="h2">Search For A City</h2>
                 </div>
-                <div class="col-12 col-md-8 col-lg-8">
-                    <p id="currenttemp" class="display-box">t</p>
+        
+        
+                <div class="p-0 mt-3 col-12">
+                    <input class="h4 p-2" id="cityinput" type="city" placeholder="ex. San Diego">
+                </div>  
+        
+                <div class="p-0 mt-2 col-12">
+                    <button class="h4 p-2 search" id="searchbtn" type="search">Search</button>
                 </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-10 col-md-6 col-lg-3">
-                    <button class="p-2" id="searchbtn" type="search">Search</button>
+        
+                <div class="p-0 mt-4 col-12">
+                    <button class="h4 p-2 cities" id="atlantaBtn">Atlanta</button>
                 </div>
-                <div class="col-12 col-md-8 col-lg-8">
-                    <p id="currentwind" class="display-box">w</p>
+       
+                <div class="p-0 mt-2 col-12">
+                    <button class="h4 p-2 cities" id="denverBtn">Denver</button>
                 </div>
-            </div>
-        <div class="row p-2">
-            <div class="col-12 col-md-4 col-lg-3">
-                <button class="p-2">Atlanta</button>
-            </div>
-            <div class="col-12 col-md-8 col-lg-8">
-                <p id="currenthumidity" class="display-box">h</p>
-            </div>
-        </div>
-        <div class="row p-2">
-            <div class="col-12 col-md-4 col-lg-3">
-                <button class="p-2">Denver</button>
-            </div>
-            <div class="col-12 col-md-8 col-lg-8">
-                <h2 class="text-center">5 - Day Forcast</h2>
-            </div>
-        </div>
-        <div class="row p-2">
-            <div class="col-12 col-md-4 col-lg-3">
-                <button class="p-2">Seattle</button>
+    
+                <div class="p-0 mt-2 col-12">
+                    <button class="h4 p-2 cities">Seattle</button>
+                </div>
+    
+                <div class="p-0 mt-2 col-12">
+                    <button class="h4 p-2 cities">San Fransisco</button>
+                </div>
+          
+                <div class="p-0 mt-2 col-12">
+                    <button class="h4 p-2 cities">Orlando</button>
+                </div>
+                <div class="p-0 mt-2 col-12">
+                    <button class="h4 p-2 cities">New York</button>
+                </div>
+                <div class="p-0 mt-2 col-12">
+                    <button class="h4 p-2 cities">Chicago</button>
+                </div>
+                <div class="p-0 mt-2 col-12">
+                    <button class="h4 p-2 cities">Austin</button>
+                </div>
+            </section>
+
+            <div class="p-2 mt-4 col-12 col-md-8 col-lg-9">
+                <section class="p-0 container display-box">
+                    <div class="row align-items-center">
+                        <div class="p-2 col-12 text-center">
+                            <h2 class="h2 mt-2" id="currentcity">Current City</h2>
+                            <h2 id="today"></h2>
+                        </div>      
+                    </div>
+                    <div class="row">
+                        <div class="p-3 col-12">
+                            <p class="h4 ms-4 p-1" id="currenttemp">T</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="p-3 col-12">
+                            <p class="h4 ms-4 p-1" id="currentwind">W</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="p-3 col-12">
+                            <p class="h4 ms-4 p-1" id="currenthumidity">H</p>
+                        </div>
+                    </div>  
+                </section>
+            
+                
+                <section class="container">
+                    <div class="row p-0">
+                        <div class="col-12">
+                            <h2 class="h2 m-3 text-center">5 - Day Forcast</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card col-12">
+                            <p class="h4" id="day1">date</p>
+                            <icon></icon>
+                            <ul>
+                                <li class="h5 p-2" id="temp">Temp:</li>
+                                <li class="h5 p-2" id="wind">Wind:</li>
+                                <li class="h5 p-2" id="humidity">Humidity:</li>
+                            </ul>
+                        </div>
+                        <div class="card col-12">
+                            <p class="h4" id="day2">date</p>
+                            <icon></icon>
+                            <ul>
+                                <li class="h5 p-2" id="temp">Temp:</li>
+                                <li class="h5 p-2" id="wind">Wind:</li>
+                                <li class="h5 p-2" id="humidity">Humidity:</li>
+                            </ul>
+                        </div>
+                        <div class="card col-12">
+                            <p class="h4" id="day3">date</p>
+                            <icon></icon>
+                            <ul>
+                                <li class="h5 p-2" id="temp">Temp:</li>
+                                <li class="h5 p-2" id="wind">Wind:</li>
+                                <li class="h5 p-2" id="humidity">Humidity:</li>
+                            </ul>
+                        </div>
+                        <div class="card col-12">
+                            <p class="h4" id="day4">date</p>
+                            <icon></icon>
+                            <ul>
+                                <li class="h5 p-2" id="temp">Temp:</li>
+                                <li class="h5 p-2" id="wind">Wind:</li>
+                                <li class="h5 p-2" id="humidity">Humidity:</li>
+                            </ul>
+                        </div>
+                        <div class="card col-12">
+                            <p class="h4" id="day5">date</p>
+                            <icon></icon>
+                            <ul>
+                                <li class="h5 p-2" id="temp">Temp:</li>
+                                <li class="h5 p-2" id="wind">Wind:</li>
+                                <li class="h5 p-2" id="humidity">Humidity:</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>    
-        <div class="row p-2">
-            <div class="col-12 col-md-4 col-lg-3">
-                <button class="p-2">San Fransisco</button>
-            </div>
-        </div>    
-        <div class="row p-2">
-            <div class="col-12 col-md-4 col-lg-3">
-                <button class="p-2">Orlando</button>
-            </div>
-        </div>        
-        </div>
-    </section>
+    </div>
 </body>
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
 <script src="./JS/script.js"></script>
+
 </html>
