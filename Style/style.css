@@ -18,9 +18,8 @@ header {
     color: white;
 }
 
-.cities {
+.button-list {
     border: none;
-    background-color: var(--gray);
 }
 
 input {
