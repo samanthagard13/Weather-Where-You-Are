@@ -1,7 +1,7 @@
 $(document).ready(function() {
 let now = dayjs();
 let apiKey = '0150c3b12a9d7824633c3bc8cc8ce43c';
- let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=${apiKey}`;
+let requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=$'{cityname}'&appid=${apiKey}`;
 let buttonContainer = $('#button-container');
 let citiesArray = [
     { name: 'Atlanta'}, 
@@ -17,6 +17,18 @@ let currentCity = $('#currentcity');
 let currentTemp = $('#currenttemp');
 let currentWind = $('#currentwind');
 let currentHumidity = $('#currenthumidity');
+
+var pageLoad = function() {
+    for (var i = 0; i < citiesArray.length; i++) {
+        var btnName = citiesArray[i].name;
+        var cityBtns = $('<button>');
+        cityBtns.addClass('h4 p-2');
+        cityBtns.text(btnName);
+        cityBtns.data('cityname', btnName);
+        buttonContainer.append(cityBtns);
+        cityBtns.on('click', displayCity); 
+    };
+}
 
 var displayCity = function() {
     var cityname = $(this).data('cityname');
@@ -47,16 +59,7 @@ function updateCurrentTime() {
     $('#today').text(now.format('dddd, MMMM D YYYY'));
     };
 
-for (var i = 0; i < citiesArray.length; i++) {
-    var btnName = citiesArray[i].name;
-    var cityBtns = $('<button>');
-    cityBtns.addClass('h4 p-2');
-    cityBtns.text(btnName);
-    cityBtns.data('cityname', btnName);
-    buttonContainer.append(cityBtns);
-    cityBtns.on('click', displayCity); 
-};
-
+pageLoad();
 updateCurrentTime();
 
 setInterval(updateCurrentTime, 1000);
