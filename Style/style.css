@@ -1,6 +1,6 @@
 :root {
     --blue: #4f689e;
-    --gray: rgb(189, 189, 189);
+    --gray: rgb(212, 212, 212);
 }
 
 body {
@@ -18,8 +18,9 @@ header {
     color: white;
 }
 
-.button-list {
+button {
     border: none;
+    background-color: var(--gray);
 }
 
 input {
