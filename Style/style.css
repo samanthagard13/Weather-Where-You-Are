@@ -21,15 +21,12 @@ header {
 button {
     border: none;
     background-color: var(--gray);
+    width: 100%;
 }
 
 input {
     width: 100%;
 } 
-
-button {
-    width: 100%;
-}
 
 .display-box {
     border: 1px solid black;
@@ -47,4 +44,6 @@ button {
 
 ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
