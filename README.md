@@ -1,3 +1,20 @@
+# Weather Where You Are
+
+## Description
+
+Website that displays current and five day forecast for any selected or searched city.
+
+## Usage
+
+Click a pre-selected city or search for any city in the US
+
+https://samanthagard13.github.io/Weather-Where-You-Are/
+
+![Screenshot](./Images/Screenshot.png)
+
+
+________________________________________________________________________________
+
 # 06 Server-Side APIs: Weather Dashboard
 
 ## Your Task

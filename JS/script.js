@@ -3,6 +3,7 @@ let now = dayjs();
 let apiKey = '0150c3b12a9d7824633c3bc8cc8ce43c';
 let buttonContainer = $('#button-container');
 let citiesArray = [
+    { name: 'Boston'},
     { name: 'Atlanta'}, 
     { name: 'Denver'},
     { name: 'Seattle'},
@@ -53,7 +54,8 @@ let humidityArray = [
     {humidity3: $('#humidity3')},
     {humidity4: $('#humidity4')},
     {humidity5: $('#humidity5')},
-]
+];
+var defaultCity = 'San Diego';
 
 var pageLoad = function() {
     for (var i = 0; i < citiesArray.length; i++) {
@@ -63,15 +65,16 @@ var pageLoad = function() {
         cityBtns.text(btnName);
         cityBtns.data('cityname', btnName);
         buttonContainer.append(cityBtns);
-        cityBtns.on('click', displayCity);
-        initialDisplay(); 
-    };
-};
+        cityBtns.on('click', function() {
+            var cityname = $(this).data('cityname');
+            displayCity(cityname);
+          });
+        }
+        initialDisplay();
+      };
 
-var displayCity = function() {
-    var cityname = $(this).data('cityname');
-    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&cnt=6&units=imperial&appid=${apiKey}`;
-    console.log(cityname);
+var displayCity = function(firstCity) {
+    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${firstCity}&cnt=6&units=imperial&appid=${apiKey}`;
     fetch(url).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
@@ -128,22 +131,30 @@ var fiveDayForecast = function(data) {
     }
 };
 
-var initialDisplay = function(data) {
-// automatic display of a city on page load
-currentCityBox();
+var initialDisplay = function() {
+    displayCity(defaultCity);
 };
 
-var citySearch = function(data) {
-    //take input data transfer to cityname in url
+var citySearch = function(e) {
+    e.preventDefault();
+    let cityInput = $('#cityinput').val();
+    defaultCity = cityInput;
+    displayCity(cityInput);
 };
 
 function updateCurrentTime() {
     $('#today').text(now.format('dddd, MMMM D YYYY'));
 };
 
+$('#cityinput').on('keypress', function(e) {
+    if (e.which === 13) {
+      citySearch(e);
+    }
+  });
+
 pageLoad();
 
-searchBtn.on('click', citySearch());
+searchBtn.on('click', citySearch);
 
 updateCurrentTime();
 
