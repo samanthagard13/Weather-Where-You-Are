@@ -149,11 +149,13 @@ var citySearch = function(event) {
     localStorage.setItem('cities', JSON.stringify(searchedCitiesArray));
     
     displayCity(cityInput);
+    $('#cityinput').autocomplete('option', 'source', searchedCitiesArray);
 };
 
-$('#cityinput').autocomplete( {
+$('#cityinput').autocomplete({
     source: searchedCitiesArray
 });
+
 
 function updateCurrentTime() {
     $('#today').text(now.format('dddd, MMMM D YYYY'));
