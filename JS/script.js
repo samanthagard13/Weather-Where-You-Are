@@ -56,6 +56,7 @@ let humidityArray = [
     {humidity5: $('#humidity5')},
 ];
 var defaultCity = 'San Diego';
+let searchedCitiesArray = [];
 
 var pageLoad = function() {
     for (var i = 0; i < citiesArray.length; i++) {
@@ -135,12 +136,24 @@ var initialDisplay = function() {
     displayCity(defaultCity);
 };
 
-var citySearch = function(e) {
-    e.preventDefault();
+var citySearch = function(event) {
+    event.preventDefault();
     let cityInput = $('#cityinput').val();
     defaultCity = cityInput;
+    let storedCities = localStorage.getItem('cities');
+    
+    if (storedCities) {
+      searchedCitiesArray = JSON.parse(storedCities);
+    }
+    searchedCitiesArray.push(cityInput);
+    localStorage.setItem('cities', JSON.stringify(searchedCitiesArray));
+    
     displayCity(cityInput);
 };
+
+$('#cityinput').autocomplete( {
+    source: searchedCitiesArray
+});
 
 function updateCurrentTime() {
     $('#today').text(now.format('dddd, MMMM D YYYY'));

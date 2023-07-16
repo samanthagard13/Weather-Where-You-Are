@@ -47,3 +47,11 @@ ul {
     margin: 0;
     padding: 0;
 }
+
+.ui-autocomplete {
+    background-color: white;
+    width: 20px;
+    padding: 2px;
+    font-size: larger;
+    border: 1px solid black;
+}
