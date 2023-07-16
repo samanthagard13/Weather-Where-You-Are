@@ -139,6 +139,7 @@ var initialDisplay = function() {
 var citySearch = function(event) {
     event.preventDefault();
     let cityInput = $('#cityinput').val();
+    cityInput = cityInput.charAt(0).toUpperCase() + cityInput.slice(1);
     defaultCity = cityInput;
     let storedCities = localStorage.getItem('cities');
     
@@ -150,11 +151,33 @@ var citySearch = function(event) {
     
     displayCity(cityInput);
     $('#cityinput').autocomplete('option', 'source', searchedCitiesArray);
+    addBtn(cityInput);
 };
 
 $('#cityinput').autocomplete({
     source: searchedCitiesArray
 });
+
+var addBtn = function(cityInput) {
+    citiesArray.push({name: cityInput});
+    refreshButtonContainer();
+};
+
+var refreshButtonContainer = function() {
+    buttonContainer.empty();
+    for (var i = 0; i < citiesArray.length; i++) {
+        var btnName = citiesArray[i].name;
+        var cityBtns = $('<button>');
+        cityBtns.addClass('h4 p-2');
+        cityBtns.text(btnName);
+        cityBtns.data('cityname', btnName);
+        buttonContainer.append(cityBtns);
+        cityBtns.on('click', function() {
+            var cityname = $(this).data('cityname');
+            displayCity(cityname);
+        });
+    }
+};
 
 
 function updateCurrentTime() {
